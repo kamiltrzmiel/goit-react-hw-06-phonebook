@@ -3,7 +3,7 @@ import { initState } from './store';
 
 const contactsSlice = createSlice({
   name: 'items',
-  initialState: JSON.parse(localStorage.getItem('contacts')) || initState,
+  initialState: JSON.parse(localStorage.getItem('contacts') || 'null') || initState,
   reducers: {
     handleAddContact: (state, action) => [...state, action.payload],
     handleDelContact: (state, action) => state.filter(contact => contact.id !== action.payload),
